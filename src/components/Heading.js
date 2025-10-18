@@ -1,10 +1,11 @@
+import {LOGO_URL} from "../util/constant"
 const Heading=()=>{
     return(
         <div className="header">
             <div className="logo">
             <img 
   alt="Food Delivery Logo"
-  src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+  src={LOGO_URL}
 />
 
             </div>
