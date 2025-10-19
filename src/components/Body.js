@@ -1,14 +1,20 @@
 import Card from "./Card";
 // import {cardList} from "../util/mock_data"
 import React, {useEffect,useState} from 'react';
+import Shimmer from "./Shimmer";
+
 
 const Body=()=>{
 
 const [list,setList]=useState([]);
+const[value,setValue]=useState("");
+const[dvalue,setDvalue]=useState([]);
 
-useEffect(()=>{
-data();
+   
+  useEffect(()=>{
+  data();
 },[])
+
 
 
 
@@ -27,20 +33,32 @@ const json = await resturants.json();
 // );
 // let vb=json?.data?.cards?.card;
 setList(restaurants);
+setDvalue(restaurants);
 // console.log(vb);
 
 
 }
 
 
-    return (
+    return list == 0?<Shimmer/>: (
         <div className="Body-res">
     <div className="search">
-        Search
+        <input type="text" value={value}  onChange={(e)=>{
+setValue(e.target.value)
+        }}/> 
+        <button
+        onClick={()=>{
+          const newlist=  list.filter((res)=> {
+           
+           return  res.info.name.toLowerCase().includes(value.toLowerCase())});
+          setDvalue(newlist);
+         
+        }}
+        >search</button>
     </div>
     <div className="res-cards">
 {
-   list.map((resturant)=>
+   dvalue.map((resturant)=>
     {
         // console.log(resturant);
         return <Card key={resturant.info.id} data={resturant}/>

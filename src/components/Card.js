@@ -1,9 +1,11 @@
 import {CARD_LOGO_URL} from "../util/constant"
 
-const Card=({data})=>{
-    // console.log(data);
-    const {info}= data;
-    const { name, cuisines, avgRating, cloudinaryImageId, areaName, costForTwo,id } = info;
+const Card=(props)=>{
+    // console.log(props)
+    const {info}= props.data;
+        // console.log(info)
+
+    const { name, cuisines, avgRating, cloudinaryImageId, costForTwo} = info;
 
 //     console.log(avgRating,
 // cloudinaryImageId,cuisines,
