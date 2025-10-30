@@ -1,12 +1,12 @@
-import Heading from "./Heading"
-import Body from "./Body"
+import Heading from "./Heading";
+import Body from "./Body";
 
-const FoodPage= ()=>{
-    return(
-        <div className="food-page">
-            <Heading/>
-<Body/>
-        </div>
-    )
-}
+const FoodPage = () => {
+  return (
+    <div className="food-page">
+      <Heading />
+      <Body />
+    </div>
+  );
+};
 export default FoodPage;
