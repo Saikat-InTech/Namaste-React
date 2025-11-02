@@ -5,5 +5,6 @@ const LIVE_API_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.6179161&lng=88.4390412&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 const MENU_URl =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.6179161&lng=88.4390412&restaurantId=596698&catalog_qa=undefined&submitAction=ENTER";
+const URL_GIT = "https://api.github.com/users/saikat-intech";
 
-export { CARD_LOGO_URL, LOGO_URL, LIVE_API_URL, MENU_URl };
+export { CARD_LOGO_URL, LOGO_URL, LIVE_API_URL, MENU_URl, URL_GIT };

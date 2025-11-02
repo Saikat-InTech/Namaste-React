@@ -1,38 +1,18 @@
 import Card from "./Card";
-// import {cardList} from "../util/mock_data"
-import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { useState, useEffect } from "react";
+import useResturant from "../util/useResturant";
 
 const Body = () => {
-  const [list, setList] = useState([]);
   const [value, setValue] = useState("");
+  const list = useResturant();
   const [dvalue, setDvalue] = useState([]);
 
   useEffect(() => {
-    data();
-  }, []);
+    setDvalue(list);
+  }, [list]);
 
-  const data = async () => {
-    const resturants = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.6179161&lng=88.4390412&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await resturants.json();
-    const restaurants =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    //       console.log(restaurants)
-    // console.log(json.data.cards[1].card.card.
-    // gridElements.infoWithStyle.restaurants[0].info
-
-    // );
-    // let vb=json?.data?.cards?.card;
-    setList(restaurants);
-    setDvalue(restaurants);
-    // console.log(vb);
-  };
-
-  return list == 0 ? (
+  return list.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="Body-res">
@@ -40,28 +20,26 @@ const Body = () => {
         <input
           type="text"
           value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
+          onChange={(e) => setValue(e.target.value)}
         />
         <button
           onClick={() => {
-            const newlist = list.filter((res) => {
-              return res.info.name.toLowerCase().includes(value.toLowerCase());
-            });
+            const newlist = list.filter((res) =>
+              res.info.name.toLowerCase().includes(value.toLowerCase())
+            );
             setDvalue(newlist);
-          }}
-        >
-          search
+          }}>
+          Search
         </button>
       </div>
+
       <div className="res-cards">
-        {dvalue.map((resturant) => {
-          // console.log(resturant);
-          return <Card key={resturant.info.id} data={resturant} />;
-        })}
+        {dvalue.map((resturant) => (
+          <Card key={resturant.info.id} data={resturant} />
+        ))}
       </div>
     </div>
   );
 };
+
 export default Body;
