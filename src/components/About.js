@@ -28,7 +28,7 @@ class About extends React.Component {
     return (
       <div>
         <h1>its about page</h1>
-        <h2>i learn how to work path</h2>
+        <h2 className="">i learn how to work path</h2>
         <h4>
           {bio}
           <br />

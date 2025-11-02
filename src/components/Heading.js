@@ -1,6 +1,9 @@
+import useStatus from "../util/useStatus";
+
 import { LOGO_URL } from "../util/constant";
 import { Link } from "react-router";
 const Heading = () => {
+  const status = useStatus();
   return (
     <div className="header">
       <div className="logo">
@@ -8,6 +11,7 @@ const Heading = () => {
       </div>
       <div className="nav-item">
         <ul className="nav-menu">
+          <li>User is: {status ? "online 🟢" : "ofline 🔴"}</li>
           <Link to="/">
             <li>HOME</li>
           </Link>

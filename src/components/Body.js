@@ -2,6 +2,7 @@ import Card from "./Card";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import useResturant from "../util/useResturant";
+import useStatus from "../util/useStatus";
 
 const Body = () => {
   const [value, setValue] = useState("");
@@ -11,7 +12,9 @@ const Body = () => {
   useEffect(() => {
     setDvalue(list);
   }, [list]);
+  const status = useStatus();
 
+  if (status === false) return <h1>Your Internet Off</h1>;
   return list.length === 0 ? (
     <Shimmer />
   ) : (
