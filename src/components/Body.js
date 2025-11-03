@@ -21,11 +21,13 @@ const Body = () => {
     <div className="Body-res">
       <div className="search">
         <input
+          className="p-2 m-3 border-2 rounded-sm"
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
         <button
+          className="bg-blue-400 rounded-sm p-2 m-1"
           onClick={() => {
             const newlist = list.filter((res) =>
               res.info.name.toLowerCase().includes(value.toLowerCase())
@@ -36,7 +38,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-cards">
+      <div className="flex flex-wrap justify-center items-center">
         {dvalue.map((resturant) => (
           <Card key={resturant.info.id} data={resturant} />
         ))}

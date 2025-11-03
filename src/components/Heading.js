@@ -5,24 +5,24 @@ import { Link } from "react-router";
 const Heading = () => {
   const status = useStatus();
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="flex justify-between items-center bg-gray-200">
+      <div className="w-24 p-4">
         <img alt="Food Delivery Logo" src={LOGO_URL} />
       </div>
-      <div className="nav-item">
-        <ul className="nav-menu">
-          <li>User is: {status ? "online 🟢" : "ofline 🔴"}</li>
+      <div className="">
+        <ul className="flex p-6">
+          <li className="p-4">User is: {status ? "online 🟢" : "ofline 🔴"}</li>
           <Link to="/">
-            <li>HOME</li>
+            <li className="p-4">HOME</li>
           </Link>
           <Link to="/about">
-            <li>About Us</li>
+            <li className="p-4">About Us</li>
           </Link>
           <Link to="/contact">
-            <li>Contact Us</li>
+            <li className="p-4">Contact Us</li>
           </Link>
           <Link to="cart">
-            <li>Cart</li>
+            <li className="p-4">Cart</li>
           </Link>
         </ul>
       </div>
