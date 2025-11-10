@@ -1,21 +1,25 @@
 import Card, { withPromotedCard } from "./Card";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
+import ResturantCardMenu from "./ResturantCardMenu";
+
 import useResturant from "../util/useResturant";
 import useStatus from "../util/useStatus";
-
 const Body = () => {
   const [value, setValue] = useState("");
   const list = useResturant();
   const [dvalue, setDvalue] = useState([]);
   const PromotedCard = withPromotedCard(Card);
+  const [mCard, SetmCard] = useState(false);
 
   useEffect(() => {
     setDvalue(list);
   }, [list]);
 
   const status = useStatus();
-
+  if (mCard) {
+    return <ResturantCardMenu />;
+  }
   if (status === false) return <h1>Your Internet Off</h1>;
   return list.length === 0 ? (
     <Shimmer />
@@ -40,7 +44,11 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center">
+      <div
+        onClick={() => {
+          SetmCard(true);
+        }}
+        className="flex flex-wrap justify-center items-center">
         {dvalue.map((resturant) =>
           resturant.info.isOpen ? (
             <PromotedCard key={resturant.info.id} data={resturant} />

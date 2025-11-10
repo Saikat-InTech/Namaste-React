@@ -1,4 +1,6 @@
 import { CARD_LOGO_URL } from "../util/constant";
+// import ResturantCardMenu from "./ResturantCardMenu";
+import React, { useState } from "react";
 
 const Card = (props) => {
   // console.log(props);
@@ -6,8 +8,16 @@ const Card = (props) => {
   const { name, cuisines, avgRating, cloudinaryImageId, costForTwo } = info;
   // const { freedelMessage } = info.loyaltyDiscoverPresentationInfo;
   // cosonloe.log(freedelMessage);
+  // const [mCard, SetmCard] = useState(false);
+  // if (mCard) {
+  //   return <ResturantCardMenu />;
+  // }
   return (
-    <div className="w-64 h-80 bg-white rounded-xl shadow-lg p-4 m-4 hover:scale-105 transition-transform duration-300">
+    <div
+      // onClick={() => {
+      //   SetmCard(true);
+      // }}
+      className="w-64 h-80 bg-white rounded-xl shadow-lg p-4 m-4 hover:scale-105 transition-transform duration-300">
       <div className="w-full h-40 rounded-lg overflow-hidden flex justify-center items-center bg-gray-100">
         <img
           src={`${CARD_LOGO_URL}${cloudinaryImageId}`}

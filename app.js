@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import FoodPage from "./src/components/FoodPage";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";

@@ -1,7 +1,7 @@
 import useStatus from "../util/useStatus";
 
 import { LOGO_URL } from "../util/constant";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 const Heading = () => {
   const status = useStatus();
   return (
