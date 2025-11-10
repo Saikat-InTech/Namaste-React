@@ -1,9 +1,11 @@
 import { CARD_LOGO_URL } from "../util/constant";
 
 const Card = (props) => {
+  // console.log(props);
   const { info } = props.data;
   const { name, cuisines, avgRating, cloudinaryImageId, costForTwo } = info;
-
+  // const { freedelMessage } = info.loyaltyDiscoverPresentationInfo;
+  // cosonloe.log(freedelMessage);
   return (
     <div className="w-64 h-80 bg-white rounded-xl shadow-lg p-4 m-4 hover:scale-105 transition-transform duration-300">
       <div className="w-full h-40 rounded-lg overflow-hidden flex justify-center items-center bg-gray-100">
@@ -25,6 +27,18 @@ const Card = (props) => {
       </div>
     </div>
   );
+};
+export const withPromotedCard = (Card) => {
+  return (props) => {
+    return (
+      <div>
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full absolute z-50 m-4  text-sm font-semibold text-white bg-[#fc8019] shadow-sm">
+          One free delivery
+        </span>
+        <Card {...props} />
+      </div>
+    );
+  };
 };
 
 export default Card;

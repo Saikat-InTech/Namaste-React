@@ -8,9 +8,9 @@ const Menucard = () => {
 
   const data = async () => {
     const menuItem = await fetch(MENU_URl);
-    console.log(menuItem);
+    // console.log(menuItem);
     const json = await menuItem.json();
-    console.log(json);
+    // console.log(json);
   };
 
   return (

@@ -1,13 +1,14 @@
-import React from "react";
+import { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import FoodPage from "./src/components/FoodPage";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import About from "./src/components/About";
+// import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import Mencard from "./src/components/Menucard";
 import Menucard from "./src/components/Menucard";
 
+const About = lazy(() => import("./src/components/About"));
 const appRouter = createBrowserRouter([
   {
     path: "/",

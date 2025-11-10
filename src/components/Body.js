@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card, { withPromotedCard } from "./Card";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import useResturant from "../util/useResturant";
@@ -8,10 +8,12 @@ const Body = () => {
   const [value, setValue] = useState("");
   const list = useResturant();
   const [dvalue, setDvalue] = useState([]);
+  const PromotedCard = withPromotedCard(Card);
 
   useEffect(() => {
     setDvalue(list);
   }, [list]);
+
   const status = useStatus();
 
   if (status === false) return <h1>Your Internet Off</h1>;
@@ -39,10 +41,16 @@ const Body = () => {
       </div>
 
       <div className="flex flex-wrap justify-center items-center">
-        {dvalue.map((resturant) => (
-          <Card key={resturant.info.id} data={resturant} />
-        ))}
+        {dvalue.map((resturant) =>
+          resturant.info.isOpen ? (
+            <PromotedCard key={resturant.info.id} data={resturant} />
+          ) : (
+            <Card key={resturant.info.id} data={resturant} />
+          )
+        )}
       </div>
+
+      {/* ✅ Place infinite scroll here */}
     </div>
   );
 };
